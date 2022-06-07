@@ -13,6 +13,7 @@ import { TextService } from '../../../data/services/TextService'
 
 interface ListProps {
     pets: Pet[];
+    onSelect: (pet: Pet) => void;
 }
 
 export default function List(props: ListProps) {
@@ -28,7 +29,11 @@ export default function List(props: ListProps) {
                     <Description>
                         {TextService.limitText(pet.history, maximumSizeText)}
                     </Description>
-                    <Button variant={'contained'} fullWidth>
+                    <Button
+                        variant={'contained'}
+                        fullWidth
+                         onClick = {() => props.onSelect(pet)}
+                    >
                     Adotar {pet.name}
                     </Button>
                 </Information>
