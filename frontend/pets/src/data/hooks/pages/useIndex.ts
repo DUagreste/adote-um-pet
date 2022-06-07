@@ -27,7 +27,7 @@ export function useIndex(){
     function adopt(){
         if(petSelected !== null){
             if(validateDataAdopt()){
-                ApiService.post('/adocoes', {
+                ApiService.post('/adoptions', {
                     pet_id: petSelected.id,
                     email,
                     amount
