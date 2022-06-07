@@ -8,6 +8,7 @@ import {
     Name,
 } from './list.style'
 import { Pet } from '../../../data/@types/Pets'
+import { TextService } from '../../../data/services/TextService'
 
 
 interface ListProps {
@@ -15,6 +16,8 @@ interface ListProps {
 }
 
 export default function List(props: ListProps) {
+    const maximumSizeText = 200;
+
     return (
         <ListStyled>
             {props.pets.map(pet => (
@@ -23,7 +26,7 @@ export default function List(props: ListProps) {
                 <Information>
                     <Name>{pet.name}</Name>
                     <Description>
-                        {pet.history}
+                        {TextService.limitText(pet.history, maximumSizeText)}
                     </Description>
                     <Button variant={'contained'} fullWidth>
                     Adotar {pet.name}
