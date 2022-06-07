@@ -17,6 +17,12 @@ export function useIndex(){
                 setListPets(response.data)
             })
     },[])
+
+    useEffect(() => {
+        if(petSelected === null){
+            clearForm();
+        }
+    }, [petSelected])
     
     function adopt(){
         if(petSelected !== null){
@@ -41,6 +47,11 @@ export function useIndex(){
 
     function validateDataAdopt(){
         return email.length > 0 && amount.length > 0
+    }
+
+    function clearForm(){
+        setEmail('');
+        setAmount('');
     }
 
     return{
