@@ -10,7 +10,14 @@ const Home: NextPage = () => {
   const {
     listPets,
     petSelected,
-    setPetSelected
+    setPetSelected,
+    email,
+    setEmail,
+    amount,
+    setAmount,
+    message,
+    setMessage,
+    adopt
   } = useIndex();
 
 
@@ -33,9 +40,10 @@ const Home: NextPage = () => {
         />
 
         <Dialog 
-          open={petSelected !== null}
+          open = {petSelected !== null}
           fullWidth
-          PaperProps={{ sx: { p: 5} }}
+          PaperProps = {{ sx: { p: 5} }}
+          onClose={() => setPetSelected(null)}
         >
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -43,6 +51,8 @@ const Home: NextPage = () => {
                 label={'E-mail'}
                 type={'email'}
                 fullWidth
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
@@ -50,17 +60,21 @@ const Home: NextPage = () => {
                 label={'Quantia (por mês)'}
                 type={'number'}
                 fullWidth
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
               />
             </Grid>
           </Grid>
           <DialogActions sx={{mt: 5}}>
             <Button
               color={'secondary'}
+              onClick={() => setPetSelected(null)}
             >
               Cancelar
             </Button>
             <Button
               variant={'contained'}
+              onClick={() => adopt()}
             >
               Confirmar adoção
             </Button>
@@ -68,8 +82,10 @@ const Home: NextPage = () => {
         </Dialog>
 
         <Snackbar
-          open={false}
-          message={'ueon'}
+          open={message.length > 0}
+          message={message}
+          autoHideDuration={2500}
+          onClose={() => setMessage('')}
         />
     </div>
   )
