@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { AxiosError } from 'axios';
+import { useState, useEffect } from 'react';
 import { Pet } from '../../@types/Pets';
-import { ApiService } from "../../services/ApiService";
+import { ApiService } from '../../services/ApiService';
 
 export function useIndex(){
     const [listPets, setListPets] = useState<Pet[]>([]),
@@ -19,15 +20,26 @@ export function useIndex(){
     
     function adopt(){
         if(petSelected !== null){
-            if(validateDadosAdopt()){
-                //eqejqwoeqq
+            if(validateDataAdopt()){
+                ApiService.post('/adocoes', {
+                    pet_id: petSelected.id,
+                    email,
+                    amount
+                })
+                    .then(() => {
+                        setPetSelected(null);
+                        setMessage('Pet adotado com sucesso!');
+                    })
+                    .catch((error: AxiosError) => {
+                        setMessage(error.response?.data.message);
+                    })
             } else {
                 setMessage('Preencha todos os dados corretamente.')
             }
         }
     }
 
-    function validateDadosAdopt(){
+    function validateDataAdopt(){
         return email.length > 0 && amount.length > 0
     }
 
