@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
-from django.db.models.fields import EmailField
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pet.apps.PetConfig',
-    'adocao.apps.AdocaoConfig',
+    'adopt.apps.AdoptConfig',
     'rest_framework',
     'corsheaders'
 ]

@@ -1,17 +1,17 @@
 from rest_framework import serializers
-from .models import Adocao
+from .models import Adopt
 from pet.serializers import PetSerializer
 from pet.models import Pet
 
 
-class AdocaoSerializer(serializers.ModelSerializer):
+class AdoptSerializer(serializers.ModelSerializer):
     pet = PetSerializer(many=False, read_only=True)
     pet_id = serializers.PrimaryKeyRelatedField(
         many=False, write_only=True, queryset=Pet.objects.all()
     )
 
     class Meta:
-        model = Adocao
+        model = Adopt
         fields = ('id', 'email', 'amount', 'pet', 'pet_id')
 
     def create(self, validated_data):
