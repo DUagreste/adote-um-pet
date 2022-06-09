@@ -11,12 +11,12 @@ export default function HeaderAdmin(){
     return (
         <HeaderContainer>
             <div>
-                <Logo src={'/imagens/logo.svg'} alt={'Adote um pet'}/>
+                <Logo src={'/images/logo.svg'} alt={'Adote um pet'}/>
                 <LinksContainer>
-                    <Link component={NextLink} href={'/pets/cadastro'}>
-                        <a>Cadastrar Pet></a>
+                    <Link component={NextLink} href={'/pets/register'}>
+                        <a>Cadastrar Pet</a>
                     </Link>
-                    <Link component={NextLink} href={'/pets/relatorio'}>
+                    <Link component={NextLink} href={'/pets/report'}>
                         <a>
                             Relatório{'  '}
                             <Box component={'span'}
@@ -29,10 +29,5 @@ export default function HeaderAdmin(){
                 
                 
             </div>
-            <NextLink href="eqeq">
-                <a>
-                    edaeqeq
-                </a>
-            </NextLink>
         </HeaderContainer>
 )}
