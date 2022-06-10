@@ -3,14 +3,10 @@ import Title from '../ui/components/title/title'
 import List from '../ui/components/list/list'
 import { Dialog, DialogActions, Grid, TextField, Button, Snackbar } from '@mui/material'
 import { useState } from 'react'
-<<<<<<< HEAD
-import { useIndex } from "../../src/data/hooks/pages/useIndex"
-=======
 import { useIndex } from '../data/hooks/pages/useIndex'
->>>>>>> 657ecb261ac974e05878ad7d872a8acb58111468
 
 
-const Home: NextPage = () => {
+const Home: NextPage = () => { 
   const {
     listPets,
     petSelected,

@@ -14,7 +14,7 @@ const tema = createTheme({
         },
     },
     typography: {
-        fontFamily: 'Roboto, sans-serif',
+        fontFamily: 'Poppins, sans-serif',
     },
     shape: {
         borderRadius: '3px',
