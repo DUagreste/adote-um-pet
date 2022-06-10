@@ -5,21 +5,13 @@ import {
     Logo,
     LinksContainer
 } from './header-admin.style';
-import Image from 'next/image'
 
 
 export default function HeaderAdmin(){
     return (
         <HeaderContainer>
             <div>
-            <Link component={NextLink} href={'/'}>
-                <Image 
-                    alt="Adote um pet" 
-                    src="/images/logo.svg" 
-                    width={'125px'}
-                    height={'250px'}
-                />
-                    </Link>
+                <Logo src={'/images/logo.svg'} alt={'Adote um pet'}/>
                 <LinksContainer>
                     <Link component={NextLink} href={'/pets/register'}>
                         <a>Cadastrar Pet</a>
@@ -34,6 +26,8 @@ export default function HeaderAdmin(){
                         </a>
                     </Link>
                 </LinksContainer>
+                
+                
             </div>
         </HeaderContainer>
 )}
