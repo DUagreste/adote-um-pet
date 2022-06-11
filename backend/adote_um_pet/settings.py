@@ -81,8 +81,11 @@ WSGI_APPLICATION = 'adote_um_pet.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pets',
+        'USER': 'postgres',
+        'PASSWORD': 'venina123',
+        'HOSTNAME': 'localhost'
     }
 }
 
