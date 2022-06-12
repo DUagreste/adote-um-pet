@@ -36,7 +36,7 @@ export function useIndex(){
                         setPetSelected(null);
                         setMessage('Pet adotado com sucesso!');
                     })
-                    .catch((error: AxiosError) => {
+                    .catch((error: AxiosError<any>) => {
                         setMessage(error.response?.data.message);
                     })
             } else {
