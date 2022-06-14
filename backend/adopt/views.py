@@ -15,7 +15,6 @@ class AdoptList(APIView):
     def post(self, request, format=None):
         serializer = AdoptSerializer(data=request.data)
         if serializer.is_valid():
-            adopt = serializer.save()
             return Response(serializer.data, status=HTTP_201_CREATED)
         return Response(
             {
